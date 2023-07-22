@@ -1,0 +1,23 @@
+<div
+  class="list"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="800"
+  (scrolled)="onScroll()">
+  
+  <article class="title">
+    <img class="logo" src="../../../assets/images/YugiohLogo.png" alt="">
+    <h1 >Yu-Gi-Oh! API List</h1>
+  </article>
+
+  <p class="description">This is a list of all the cards in the Yu-Gi-Oh! API.</p>
+  <input class="form-control" type="text" placeholder="Search..." [formControl]="cardTextFC" />
+
+  <div class="cards">
+    <app-card 
+    *ngFor="let card of cards" 
+    [card]="card">
+  </app-card>
+  </div>
+  
+</div>

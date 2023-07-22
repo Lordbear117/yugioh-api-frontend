@@ -1,0 +1,43 @@
+<!-- If card is valid, use the async pipe to save the value from card$ | async in "card" -->
+<div class="detail-card" *ngIf="card$ | async as card">
+  <div class="top">
+    <img [src]="card.card_images[0].image_url" alt="Card not found" />
+  </div>
+  <div class="bottom">
+    <h2>{{card.name}}</h2>
+
+    <div class="item">
+      <p class="description">{{card.desc}}</p>
+    </div>
+    
+    <div class="item">
+      <h3 class="title">Archetype</h3>
+      <p class="description">{{card.archetype}}</p>
+    </div>
+
+    <div class="item">
+        <h3 class="title">Type</h3>
+        <p class="description">{{card.type}}</p>
+      </div>
+
+      <div class="item">
+        <h3 class="title">Subtype</h3>
+        <p class="description">{{card.race}}</p>
+      </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Market</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let market of card.card_prices[0] | keyvalue">
+          <th scope="row">{{market.key | marketName}}</th>
+          <th>{{market.value}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
